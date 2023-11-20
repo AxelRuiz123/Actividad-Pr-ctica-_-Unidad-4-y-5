@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Convertidor de Unidades</title>
+</head>
+<body>
+  <h1>Convertidor de Unidades</h1>
+  <select id="selectUnidades" onchange="redireccionar()">
+    <option value="">Selecciona una opción</option>
+    <option value="tiempo.html">Conversor de Tiempo</option>
+    <option value="temperatura.html">Conversor de Temperatura</option>
+    <option value="peso.html">Conversor de Peso</option>
+  </select>
+
+  <script>
+    function redireccionar() {
+      var select = document.getElementById("selectUnidades");
+      var opcionSeleccionada = select.options[select.selectedIndex].value;
+      if (opcionSeleccionada !== "") {
+        window.location.href = opcionSeleccionada;
+      }
+    }
+  </script>
+</body>
+</html>

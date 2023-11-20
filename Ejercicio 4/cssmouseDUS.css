@@ -1,0 +1,34 @@
+/* ESTILO imagen*/
+#imag{
+width: 10rem;
+}
+#imaC{
+height: 14rem;
+}
+
+#imag2{
+width: 10rem;
+}
+
+#imag3{
+width: 10rem;
+}
+
+#imag4{
+width: 10rem;
+}
+
+
+
+
+/* ESTILOS fondo onmouseup y onmousedown*/
+
+.fnaranja{background: orange;}
+.fblanco{background: white;}
+
+
+/* ESTILOS fondo*/
+
+.crojo{background: red;}
+.cverde{background: green;}
+.cblanco{background: white;}

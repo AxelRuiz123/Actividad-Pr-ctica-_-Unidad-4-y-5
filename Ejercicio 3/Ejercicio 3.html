@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC y Sugerencias</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora de IMC y Sugerencias</h1>
+
+    <form id="formulario">
+        <p><strong>Instrucciones generales:</strong> Complete el formulario para calcular su IMC y recibir sugerencias de vida sana.</p>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required>
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" required>
+
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" required>
+
+        <label for="alergias">Alergias (separadas por comas):</label>
+        <input type="text" id="alergias">
+
+        <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+    </form>
+
+    <h2>Resultados</h2>
+    <p id="resultadoIMC"></p>
+    <p id="sugerenciaVidaSana"></p>
+    <p id="sugerenciaEjercicio"></p>
+    <p id="sugerenciaAlimentos"></p>
+
+    <script>
+        function calcularIMC() {
+            // Obtener los valores del formulario
+            var edad = parseInt(document.getElementById("edad").value);
+            var peso = parseFloat(document.getElementById("peso").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            var alergias = document.getElementById("alergias").value;
+
+            // Calcular el IMC
+            var imc = peso / ((altura / 100) ** 2);
+            imc = imc.toFixed(2);
+
+            // Mostrar resultados
+            document.getElementById("resultadoIMC").innerText = "Su IMC es: " + imc;
+
+            // Sugerir platillo y rutina de ejercicio
+            var sugerencia = "Sugerencias de vida sana:\n";
+            if (imc < 18.5) {
+                sugerencia += "¡Necesita ganar peso! Consulte a un profesional de la salud para obtener un plan adecuado.";
+            } else if (imc >= 18.5 && imc < 24.9) {
+                sugerencia += "¡Su peso está en un rango saludable! Mantenga una dieta balanceada y realice ejercicio regularmente.";
+            } else if (imc >= 25 && imc < 29.9) {
+                sugerencia += "¡Tiene sobrepeso! Considere ajustar su dieta y aumentar la actividad física.";
+                sugerencia += "\n\nRutina de Ejercicio con Peso Corporal:\n";
+                sugerencia += "1. Calentamiento (5-10 minutos):\n   Saltar la cuerda o correr en el lugar.\n";
+                sugerencia += "2. Ejercicios para la Parte Superior del Cuerpo:\n";
+                sugerencia += "   - Flexiones (Push-ups): 3 series de 10-15 repeticiones.\n";
+                sugerencia += "   - Pull-ups (si tienes acceso a una barra): 3 series de 5-10 repeticiones.\n";
+                sugerencia += "   - Dips (utilizando barras paralelas o una silla resistente): 3 series de 10-15 repeticiones.\n";
+                sugerencia += "3. Ejercicios para el Core:\n";
+                sugerencia += "   - Plank (Tabla): Mantén la posición durante 30-60 segundos, 3 veces.\n";
+                sugerencia += "   - Crunches (Abdominales): 3 series de 15-20 repeticiones.\n";
+                sugerencia += "   - Mountain Climbers: 3 series de 20 repeticiones (10 por pierna).\n";
+                sugerencia += "4. Ejercicios para la Parte Inferior del Cuerpo:\n";
+                sugerencia += "   - Sentadillas (Squats): 3 series de 15-20 repeticiones.\n";
+                sugerencia += "   - Zancadas (Lunges): 3 series de 10-12 repeticiones por pierna.\n";
+                sugerencia += "   - Elevación de talones (Calf Raises): 3 series de 20-25 repeticiones.\n";
+                sugerencia += "5. Estiramientos (5-10 minutos):\n   Dedica tiempo a estirar cada grupo muscular. Mantén cada estiramiento durante al menos 15-30 segundos.";
+            } else {
+                sugerencia += "¡Tiene obesidad! Consulte a un profesional de la salud para obtener asesoramiento y establecer metas realistas.";
+                sugerencia += "\n\nRutina de Ejercicio con Peso Corporal:\n";
+                sugerencia += "1. Calentamiento (5-10 minutos):\n   Saltar la cuerda o correr en el lugar.\n";
+                sugerencia += "2. Ejercicios para la Parte Superior del Cuerpo:\n";
+                sugerencia += "   - Flexiones (Push-ups): 3 series de 10-15 repeticiones.\n";
+                sugerencia += "   - Pull-ups (si tienes acceso a una barra): 3 series de 5-10 repeticiones.\n";
+                sugerencia += "   - Dips (utilizando barras paralelas o una silla resistente): 3 series de 10-15 repeticiones.\n";
+                sugerencia += "3. Ejercicios para el Core:\n";
+                sugerencia += "   - Plank (Tabla): Mantén la posición durante 30-60 segundos, 3 veces.\n";
+                sugerencia += "   - Crunches (Abdominales): 3 series de 15-20 repeticiones.\n";
+                sugerencia += "   - Mountain Climbers: 3 series de 20 repeticiones (10 por pierna).\n";
+                sugerencia += "4. Ejercicios para la Parte Inferior del Cuerpo:\n";
+                sugerencia += "   - Sentadillas (Squats): 3 series de 15-20 repeticiones.\n";
+                sugerencia += "   - Zancadas (Lunges): 3 series de 10-12 repeticiones por pierna.\n";
+                sugerencia += "   - Elevación de talones (Calf Raises): 3 series de 20-25 repeticiones.\n";
+                sugerencia += "5. Estiramientos (5-10 minutos):\n   Dedica tiempo a estirar cada grupo muscular. Mantén cada estiramiento durante al menos 15-30 segundos.";
+            }
+
+            // Sugerir alimentos saludables
+            sugerencia += "\n\nSugerencias de Alimentos Saludables:\n";
+            sugerencia += "1. Proteínas:\n";
+            sugerencia += "   Fuentes Animales:\n";
+            sugerencia += "   - Pollo sin piel.\n";
+            sugerencia += "   - Pavo.\n";
+            sugerencia += "   - Pescado (salmón, atún, trucha, etc.).\n";
+            sugerencia += "   - Huevos (preferiblemente claras de huevo).\n";
+            sugerencia += "   - Yogur griego bajo en grasa.\n";
+            sugerencia += "   Fuentes Vegetales:\n";
+            sugerencia += "   - Legumbres (lentejas, garbanzos, frijoles).\n";
+            sugerencia += "   - Tofu.\n";
+            sugerencia += "   - Quinoa.\n";
+            sugerencia += "   - Frutos secos y semillas.\n";
+            sugerencia += "2. Vegetales:\n";
+            sugerencia += "   - Variedad de verduras de hojas verdes (espinacas, kale, lechuga).\n";
+            sugerencia += "   - Brócoli, coliflor, zanahorias, etc.\n";
+            sugerencia += "   - Tomates, pepinos, pimientos.\n";
+            sugerencia += "   Asegúrate de que la mitad de tu plato esté compuesto por estos alimentos.\n";
+            sugerencia += "3. Grasas Saludables:\n";
+            sugerencia += "   - Aceite de oliva extra virgen.\n";
+            sugerencia += "   - Aguacates.\n";
+            sugerencia += "   - Frutos secos y semillas (almendras, nueces, chía, linaza).\n";
+            sugerencia += "4. Carbohidratos Complejos (en moderación):\n";
+            sugerencia += "   - Arroz integral.\n";
+            sugerencia += "   - Quinoa.\n";
+            sugerencia += "   - Batatas.\n";
+            sugerencia += "   - Avena.\n";
+            sugerencia += "   - Pan integral.\n";
+            sugerencia += "5. Frutas:\n";
+            sugerencia += "   - Frutas frescas y variadas.\n";
+            sugerencia += "   Controla el consumo de frutas más altas en azúcares como plátanos y mangos.\n";
+            sugerencia += "6. Líquidos:\n";
+            sugerencia += "   - Agua como principal fuente de hidratación.\n";
+            sugerencia += "   - Té verde o negro sin azúcar.\n";
+            sugerencia += "7. Snacks Saludables:\n";
+            sugerencia += "   - Yogur griego natural.\n";
+            sugerencia += "   - Verduras crudas con hummus.\n";
+            sugerencia += "   - Batido de proteínas con frutas y leche baja en grasa.";
+
+            // Mostrar sugerencias en el documento
+            document.getElementById("sugerenciaEjercicio").innerText = sugerencia;
+        }
+    </script>
+
+</body>
+</html>

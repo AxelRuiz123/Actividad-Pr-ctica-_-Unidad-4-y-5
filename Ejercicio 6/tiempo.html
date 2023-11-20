@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversor de Tiempo</title>
+</head>
+<body>
+  <h1>Conversor de Tiempo</h1>
+  <label for="inputHoras">Horas:</label>
+  <input type="number" id="inputHoras">
+  <br>
+  <button onclick="convertirHorasAMinutos()">Convertir a Minutos</button>
+  <button onclick="convertirHorasASegundos()">Convertir a Segundos</button>
+
+  <script>
+    function convertirHorasAMinutos() {
+      var horas = parseFloat(document.getElementById("inputHoras").value);
+      var minutos = horas * 60;
+      alert(horas + " horas equivalen a " + minutos + " minutos.");
+    }
+
+    function convertirHorasASegundos() {
+      var horas = parseFloat(document.getElementById("inputHoras").value);
+      var segundos = horas * 3600;
+      alert(horas + " horas equivalen a " + segundos + " segundos.");
+    }
+  </script>
+</body>
+</html>

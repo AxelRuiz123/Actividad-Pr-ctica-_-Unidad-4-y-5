@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversor de Peso</title>
+</head>
+<body>
+  <h1>Conversor de Peso</h1>
+  <label for="inputKilos">Kilogramos:</label>
+  <input type="number" id="inputKilos">
+  <br>
+  <button onclick="convertirKilosALibras()">Convertir a Libras</button>
+  <button onclick="convertirKilosAOnzas()">Convertir a Onzas</button>
+
+  <script>
+    function convertirKilosALibras() {
+      var kilos = parseFloat(document.getElementById("inputKilos").value);
+      var libras = kilos * 2.20462;
+      alert(kilos + " kilogramos equivalen a " + libras + " libras.");
+    }
+
+    function convertirKilosAOnzas() {
+      var kilos = parseFloat(document.getElementById("inputKilos").value);
+      var onzas = kilos * 35.27396;
+      alert(kilos + " kilogramos equivalen a " + onzas + " onzas.");
+    }
+  </script>
+</body>
+</html>

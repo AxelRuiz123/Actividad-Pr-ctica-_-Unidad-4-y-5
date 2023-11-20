@@ -1,0 +1,43 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.planet {
+    padding: 5px;
+    margin: 3px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    text-align: center;
+}
+
+.planet img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.descripcion {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+    .planet {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

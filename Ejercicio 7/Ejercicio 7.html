@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Figuras</title>
+  <style>
+    .figura {
+      position: relative;
+      display: inline-block;
+    }
+
+    .figura img {
+      width: 200px;
+      height: auto;
+    }
+
+    .figura .formulas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .figura:hover .formulas {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Figuras</h1>
+
+  <div class="figura">
+    <img src="circulo.png" alt="Círculo">
+    <div class="formulas">
+      <p>Fórmulas:</p>
+      <p>Área: π * radio²</p>
+      <p>Perímetro: 2 * π * radio</p>
+      <p>
+        <label for="circulo-radio">Radio:</label>
+        <input type="number" id="circulo-radio">
+        <button onclick="calcularAreaCirculo()">Calcular</button>
+      </p>
+      <p id="circulo-resultado"></p>
+    </div>
+  </div>
+
+  <div class="figura">
+    <img src="triangulo.png" alt="Triángulo">
+    <div class="formulas">
+      <p>Fórmulas:</p>
+      <p>Área: (base * altura) / 2</p>
+      <p>Perímetro: suma de los lados</p>
+      <p>
+        <label for="triangulo-base">Base:</label>
+        <input type="number" id="triangulo-base">
+        <label for="triangulo-altura">Altura:</label>
+        <input type="number" id="triangulo-altura">
+        <button onclick="calcularAreaTriangulo()">Calcular</button>
+      </p>
+      <p id="triangulo-resultado"></p>
+    </div>
+  </div>
+
+  <div class="figura">
+    <img src="rectangulo.png" alt="Rectángulo">
+    <div class="formulas">
+      <p>Fórmulas:</p>
+      <p>Área: base * altura</p>
+      <p>Perímetro: 2 * (base + altura)</p>
+      <p>
+        <label for="rectangulo-base">Base:</label>
+        <input type="number" id="rectangulo-base">
+        <label for="rectangulo-altura">Altura:</label>
+        <input type="number" id="rectangulo-altura">
+        <button onclick="calcularAreaRectangulo()">Calcular</button>
+      </p>
+      <p id="rectangulo-resultado"></p>
+    </div>
+  </div>
+
+  <div class="figura">
+    <img src="cuadrado.png" alt="Cuadrado">
+    <div class="formulas">
+      <p>Fórmulas:</p>
+      <p>Área: lado * lado</p>
+      <p>Perímetro: 4 * lado</p>
+      <p>
+        <label for="cuadrado-lado">Lado:</label>
+        <input type="number" id="cuadrado-lado">
+        <button onclick="calcularAreaCuadrado()">Calcular</button>
+      </p>
+      <p id="cuadrado-resultado"></p>
+    </div>
+  </div>
+
+  <div class="figura">
+    <img src="esfera.png" alt="Esfera">
+    <div class="formulas">
+      <p>Fórmulas:</p>
+      <p>Área: 4 * π * radio²</p>
+      <p>Volumen: (4/3) * π * radio³</p>
+      <p>
+        <label for="esfera-radio">Radio:</label>
+        <input type="number" id="esfera-radio">
+        <button onclick="calcularAreaEsfera()">Calcular</button>
+      </p>
+      <p id="esfera-resultado"></p>
+    </div>
+  </div>
+
+  <script>
+    function calcularAreaCirculo() {
+      var radio = document.getElementById("circulo-radio").value;
+      var area = Math.PI * radio * radio;
+      document.getElementById("circulo-resultado").textContent = "Área: " + area.toFixed(2);
+    }
+
+    function calcularAreaTriangulo() {
+      var base = document.getElementById("triangulo-base").value;
+      var altura = document.getElementById("triangulo-altura").value;
+      var area = (base * altura) / 2;
+      document.getElementById("triangulo-resultado").textContent = "Área: " + area.toFixed(2);
+    }
+
+    function calcularAreaRectangulo() {
+      var base = document.getElementById("rectangulo-base").value;
+      var altura = document.getElementById("rectangulo-altura").value;
+      var area = base * altura;
+      document.getElementById("rectangulo-resultado").textContent = "Área: " + area.toFixed(2);
+    }
+
+    function calcularAreaCuadrado() {
+      var lado = document.getElementById("cuadrado-lado").value;
+      var area = lado * lado;
+      document.getElementById("cuadrado-resultado").textContent = "Área: " + area.toFixed(2);
+    }
+
+    function calcularAreaEsfera() {
+      var radio = document.getElementById("esfera-radio").value;
+      var area = 4 * Math.PI * radio * radio;
+      document.getElementById("esfera-resultado").textContent = "Área: " + area.toFixed(2);
+    }
+  </script>
+</body>
+</html>

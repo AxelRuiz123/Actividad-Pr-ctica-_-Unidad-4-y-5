@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversor de Temperatura</title>
+</head>
+<body>
+  <h1>Conversor de Temperatura</h1>
+  <label for="inputCelsius">Celsius:</label>
+  <input type="number" id="inputCelsius">
+  <br>
+  <button onclick="convertirCelsiusAFahrenheit()">Convertir a Fahrenheit</button>
+  <button onclick="convertirCelsiusAKelvin()">Convertir a Kelvin</button>
+
+  <script>
+    function convertirCelsiusAFahrenheit() {
+      var celsius = parseFloat(document.getElementById("inputCelsius").value);
+      var fahrenheit = (celsius * 9/5) + 32;
+      alert(celsius + " grados Celsius equivalen a " + fahrenheit + " grados Fahrenheit.");
+    }
+
+    function convertirCelsiusAKelvin() {
+      var celsius = parseFloat(document.getElementById("inputCelsius").value);
+      var kelvin = celsius + 273.15;
+      alert(celsius + " grados Celsius equivalen a " + kelvin + " grados kelvin.");
+    }
+  </script>
+</body>
+</html>
